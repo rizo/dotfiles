@@ -1,6 +1,6 @@
 [submodule "vim"]
 	path = vim
-	url = git@github.com:rizo/vim-configs.git
+url=https://github.com/rizo/vim-configs.git
 [submodule "bash"]
 	path = bash
-	url = git@github.com:rizo/bash-configs.git
+url=https://github.com/rizo/bash-configs.git
