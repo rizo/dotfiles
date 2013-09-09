@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+installer() {
+	printf "\e[34m#\e[0m Dotfiles Installer\n\n"
+	# find the installers and run them iteratively
+	find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+}
+
+
+uninstaller () {
+	printf "\e[34m#\e[0m Dotfiles Uninstaller\n\n"
+	# find the uninstallers and run them iteratively
+	find . -name uninstall.sh | while read uninstaller ; do sh -c "${uninstaller}" ; done
+}
+
+usage() {
+	echo "usage: dot [install|uninsall]"
+	exit -1
+}
+
+if [ $# != 1 ]
+then
+	usage
+fi
+
+cmd=$1
+
+if [ "$cmd" = "install" ]
+then
+	installer
+elif [[ "$cmd" = "uninstall" ]]
+then
+	uninstaller
+else
+	usage
+fi
+
+
